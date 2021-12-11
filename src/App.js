@@ -21,7 +21,7 @@ const App = () => {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+    const res = await fetch("https://cool-task-tracker.herokuapp.com/");
     const data = await res.json();
 
     return data;
@@ -29,7 +29,7 @@ const App = () => {
 
   // Fetch Task
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`);
+    const res = await fetch(`https://cool-task-tracker.herokuapp.com/${id}`);
     const data = await res.json();
 
     return data;
@@ -37,7 +37,7 @@ const App = () => {
 
   // Add Task
   const addTask = async (task) => {
-    const res = await fetch("http://localhost:5000/tasks", {
+    const res = await fetch("https://cool-task-tracker.herokuapp.com/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -56,7 +56,7 @@ const App = () => {
 
   // Delete Task
   const deleteTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(`https://cool-task-tracker.herokuapp.com/${id}`, {
       method: "DELETE",
     });
     //We should control the response status to decide if we will change the state or not.
@@ -70,7 +70,7 @@ const App = () => {
     const taskToToggle = await fetchTask(id);
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(`https://cool-task-tracker.herokuapp.com/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
